@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses in Account</title>
+</head>
+<body>
+<h1>Expenses in Account</h1>
+<div align="center">
+    <h1>Expenses List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Expense ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Recur Monthly</th>
+            <th>Amount</th>
+            <th>Account ID</th>
+            <th>Account Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="expense : ${expenseList}">
+            <td th:text="${expense.id}">Expense ID</td>
+            <td th:text="${expense.name}">Name</td>
+            <td th:text="${expense.date}">Date</td>
+            <td th:text="${expense.recurring}">Recur Monthly</td>
+            <td th:text="${expense.amount}">Amount</td>
+            <td th:text="${expense.account.id}">Account ID</td>
+            <td th:text="${expense.account.name}">Account Name</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

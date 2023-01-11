@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Debt</title>
+</head>
+<body>
+<div align="center">
+    <h1>Create New Debt</h1>
+    <br />
+    <form action="#" th:action="@{/save-debt}" th:object="${debt}" method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Debt ID:</td>
+                <td><input type="number" th:field="*{id}" required/></td>
+            </tr>
+            <tr>
+                <td>Creditor:</td>
+                <td><input type="text" th:field="*{creditor}" required/></td>
+            </tr>
+            <tr>
+                <td>Type of Debt:</td>
+                <td><input type="text" th:field="*{type}" required/></td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td><input type="date" th:field="*{date}" required/></td>
+            </tr>
+            <tr>
+                <td>Amount:</td>
+                <td><textarea type="number" th:field="*{amount}" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Payment:</td>
+                <td><textarea type="number" th:field="*{payment}" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Interest(enter as decimal):</td>
+                <td><textarea type="number" th:field="*{interest}" required></textarea></td>
+            </tr>
+            <tr>
+                <td>ID of Account to be charged:</td>
+                <td><textarea type="number" th:field="*{account}" required></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

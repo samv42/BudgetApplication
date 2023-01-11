@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Income</title>
+</head>
+<body>
+<div align="center">
+    <h1>Edit Income</h1>
+    <br />
+    <form action="#" th:action="@{'/update-income/' + ${income.id}}" th:object="${income}"
+          method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Income ID:</td>
+                <td><input type="text" th:field="*{id}" readonly/></td>
+            </tr>
+            <tr>
+                <td>Income Name:</td>
+                <td><input type="text" th:field="*{income.name}" required/></td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td><input type="date" th:field="*{date}" required/></td>
+            </tr>
+            <tr>
+                <td>Recur Monthly:</td>
+                <td><input type="bolean" th:field="*{recurring}" required/></td>
+            </tr>
+            <tr>
+                <td>Amount:</td>
+                <td><textarea type="number" th:field="*{amount}" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Account ID (Account income will go to):</td>
+                <td><input type="text" th:field="*{account}" readonly/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

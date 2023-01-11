@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses</title>
+</head>
+<body>
+<h1>Expenses</h1>
+<div align="center">
+    <h1>Expense List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Expense ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Recur Monthly</th>
+            <th>Amount</th>
+            <th>Account Charged</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="expense : ${expenseList}">
+            <td th:text="${expense.id}">Expense ID</td>
+            <td th:text="${expense.name}">Name</td>
+            <td th:text="${expense.type}">Type of Expense</td>
+            <td th:text="${expense.date}">Date</td>
+            <td th:text="${expense.recurring}">Recur Monthly</td>
+            <td th:text="${expense.amount}">Amount</td>
+            <td th:text="${expense.account.id}">Account Charged</td>
+            <td th:text="${expense.account.name}">Account Charged</td>
+            <td><a th:href="@{'/edit-expense/' + ${expense.id}}">Edit</a>
+            <a th:href="@{'/delete-expense/' + ${expense.id}}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a th:href="@{/new-expense}">Add New Expense</a>
+<a th:href= "@{/index}" >Home</a>
+</body>
+</html>

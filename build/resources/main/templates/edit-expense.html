@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Expense</title>
+</head>
+<body>
+<br />
+<form action="#" th:action="@{'/update-expense/' + ${expense.id}}" th:object="${expense}"
+      method="post">
+    <table border="0" cellpadding="10">
+        <tr>
+            <td>Expense ID:</td>
+            <td><input type="text" th:field="*{id}" readonly/></td>
+        </tr>
+        <tr>
+            <td>Expense Name:</td>
+            <td><input type="text" th:field="*{name}" required/></td>
+        </tr>
+        <tr>
+            <td>Expense Type:</td>
+            <td><input type="text" th:field="*{type}" required/></td>
+        </tr>
+
+        <tr>
+        <td>Date:</td>
+        <td><input type="date" th:field="*{date}" required/></td>
+        </tr>
+        <tr>
+            <td>Recur Monthly:</td>
+            <td><input type="bolean" th:field="*{recurring}" required/></td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td><textarea type="number" th:field="*{amount}" required></textarea></td>
+        </tr>
+        <tr>
+            <td>ID of Account to be charged:</td>
+            <td><textarea type="number" th:field="*{account}" required></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Save</button></td>
+        </tr>
+    </table>
+</form>
+</div>
+
+</body>
+</html>

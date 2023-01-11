@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Income</title>
+</head>
+<body>
+<h1>Income</h1>
+<div align="center">
+    <h1>Income List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Income ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Recur Monthly</th>
+            <th>Amount</th>
+            <th>Account ID</th>
+            <th>Account Name</th>
+            <th>Operations</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="income : ${incomeList}">
+            <td th:text="${income.id}">Income ID</td>
+            <td th:text="${income.name}">Name</td>
+            <td th:text="${income.date}">Date</td>
+            <td th:text="${income.recurring}">Recur Monthly</td>
+            <td th:text="${income.amount}">Amount</td>
+            <td th:text="${income.account.id}">Account ID</td>
+            <td th:text="${income.account.name}">Account Name</td>
+            <td><a th:href="@{'/edit-income/' + ${income.id}}">Edit</a>
+                <a th:href="@{'/delete-income/' + ${income.id}}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a th:href="@{/new-income}">Add New Income</a>
+<a th:href= "@{/index}" >Home</a>
+</body>
+</html>

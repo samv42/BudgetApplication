@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Statistics</title>
+</head>
+<body>
+<div align="center">
+    <h1>Account Statistics</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Total Income</th>
+            <th>Total Spending (Expenses and Debt Payments)</th>
+            <th>Time to Until Target Balance Reached</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object=${"accountStat"}>
+            <td th:text="${accountStat.monthlyIncome}">Total Income</td>
+            <td th:text="${accountStat.monthlyExpense}">Total Spending (Expenses and Debt Payments)</td>
+            <td th:text="${accountStat.timeToGoal}">Time to Until Target Balance Reached (months)</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

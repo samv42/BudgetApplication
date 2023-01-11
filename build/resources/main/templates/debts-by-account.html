@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Debts in Account</title>
+</head>
+<body>
+<h1>Debts in Account</h1>
+<div align="center">
+    <h1>Debt List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Debt ID</th>
+            <th>Creditor</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Payment</th>
+            <th>Interest</th>
+            <th>Account ID</th>
+            <th>Account Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="debt : ${debtList}">
+            <td th:text="${debt.id}">Debt ID</td>
+            <td th:text="${debt.creditor}">Creditor</td>
+            <td th:text="${debt.type}">Type</td>
+            <td th:text="${debt.date}">Date</td>
+            <td th:text="${debt.amount}">Amount</td>
+            <td th:text="${debt.payment}">Payment</td>
+            <td th:text="${debt.interest}">Interest</td>
+            <td th:text="${debt.account.id}">Account ID</td>
+            <td th:text="${debt.account.name}">Account Name</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

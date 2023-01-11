@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts</title>
+</head>
+<body>
+<h1>Accounts</h1>
+<div align="center">
+    <h1>Account List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Account ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Balance</th>
+            <th>Target Balance</th>
+            <th>Monthly Interest</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="account : ${accountList}">
+            <td th:text="${account.id}">Account ID</td>
+            <td th:text="${account.name}">Name</td>
+            <td th:text="${account.type}">Type</td>
+            <td th:text="${account.balance}">Balance</td>
+            <td th:text="${account.targetBalance}">Target Balance</td>
+            <td th:text="${account.interest}">Interest</td>
+            <td><a th:href="@{'/edit-account/' + ${account.id}}">Edit</a>
+                <a th:href="@{'/delete-account/' + ${account.id}}">Delete</a>
+                <a th:href="@{'/transfer-money/' + ${account.id}}">Transfer money</a>
+                <a th:href="@{'/incomes-by-account/' + ${account.id}}">Incomes</a>
+                <a th:href="@{'/expenses-by-account/' + ${account.id}}">Expenses</a>
+                <a th:href="@{'/debts-by-account/' + ${account.id}}">Debts</a></td>
+                <a th:href="@{'/Account-Stats/' + ${account.id}}">Account Statistics</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a th:href="@{/new-account}">Add New Account</a>
+<a th:href= "@{/index}" >Home</a>
+</body>
+</html>
